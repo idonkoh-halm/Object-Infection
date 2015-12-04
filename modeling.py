@@ -56,7 +56,7 @@ class DataWriter:
     
 
 def create_people (self):
-        for i in range(5001):
+        for i in range(5000):
             Person()
         
 
@@ -71,6 +71,6 @@ def run_simulation (population, ticks, filename='data.csv'):
     dataWriter.finish()
 
 # Run simulation for population & ticks...
-run_simulation(100,365)
+run_simulation(5000,365)
 create_people()
 
