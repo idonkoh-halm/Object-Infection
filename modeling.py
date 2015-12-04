@@ -18,9 +18,11 @@ class Person:
         # interact with some subset of the population?
         if len(self.population) > 5:
             friends = random.sample(self.population,5)
+            spouses = random.sample(self.population,1)
         else:
             friends = self.population[:] # Everyone!
         # Do something with your friends here...
+            
 
         
 class DataWriter:
@@ -53,8 +55,10 @@ class DataWriter:
         self.f.close()
     
 
-def create_people (n):
-    for i in range(n): Person()
+def create_people (self):
+        for i in range(5001):
+            Person()
+        
 
 def run_simulation (population, ticks, filename='data.csv'):
     print 'really running'
@@ -68,3 +72,5 @@ def run_simulation (population, ticks, filename='data.csv'):
 
 # Run simulation for population & ticks...
 run_simulation(100,365)
+create_people()
+
