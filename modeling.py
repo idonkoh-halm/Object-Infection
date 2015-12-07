@@ -7,22 +7,33 @@ class Person:
 
     def __init__ (self):
         self.infected = False
+        self.contagious = False
         self.population.append(self)
-
     def die (self):
         self.population.remove(self)
         self.graveyard.append(self)
 
     def tick (self):
+        if self.infected:
+            self.contagious = True
+        if self.infected:
+            roll= random.randint(1,6)
+            if roll ==1:
+                self.die()
+            if roll==2:
+                self.infected=False
+                self.contagious= False
         # Do whatever you do to simulate a unit of life. Perhaps
         # interact with some subset of the population?
         if len(self.population) > 5:
             friends = random.sample(self.population,5)
-            spouses = random.sample(self.population,1)
+            
         else:
             friends = self.population[:] # Everyone!
         # Do something with your friends here...
-            
+        for friend in friends:
+            if friend.contagious:
+                self.infected= True
 
         
 class DataWriter:
@@ -56,7 +67,9 @@ class DataWriter:
     
 
 def create_people (self):
-        for i in range(5000):
+    patient_zero = Person()
+    patient_zero.infected = True
+    for i in range(5000):
             Person()
         
 
@@ -71,6 +84,5 @@ def run_simulation (population, ticks, filename='data.csv'):
     dataWriter.finish()
 
 # Run simulation for population & ticks...
-run_simulation(5000,365)
-create_people()
+run_simulation(499,365)
 
