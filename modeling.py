@@ -54,7 +54,7 @@ class DataWriter:
         self.output_text(txt)
 
     def output_header (self):
-        self.output_text('Live,Dead')
+        self.output_text('Live,Dead,Infected,Contagious')
 
     def output_data (self):
         # Output data for our population...
@@ -69,8 +69,6 @@ class DataWriter:
 def create_people (self):
     patient_zero = Person()
     patient_zero.infected = True
-    for i in range(5000):
-            Person()
         
 
 def run_simulation (population, ticks, filename='data.csv'):
